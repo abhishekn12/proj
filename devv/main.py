@@ -36,6 +36,18 @@ def root():
     itemData = parse(itemData)   
     return render_template('index.html', itemData=itemData, loggedIn=loggedIn, firstName=firstName, noOfItems=noOfItems, categoryData=categoryData)
 
+@app.route("/clothing")
+def clothing():
+    return render_template('clothing.html')
+
+@app.route("/electronics")
+def electronics():
+    return render_template('electronics.html')
+
+@app.route("/books")
+def books():
+    return render_template('books.html')
+
 # @app.route("/add")
 # def admin():
 #     with sqlite3.connect('database.db') as conn:
