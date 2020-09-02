@@ -24,15 +24,19 @@
         
         <div  class="icon">
             <img src="static/images/cart.jpg" height="30" width="30" class="cart" >
-            <h2>3</h2>
+            <h2>{{noOfItems}}</h2>
                 <!-- <img src="static/images/download.png" height="25" width="25" class="search"> -->
                 
                     
-                   
+            {% if not loggedIn %}
                 <form action="/loginForm">
-                    <input type="submit" value="login">
+                <input type="submit" value="login">
+                </form>
+            {% else %}
+                <form action="/logout">
+                    <input type="submit" value="logout">
                     </form>
-            
+            {% endif %}
             </div>
             
             <h4 ><font>Mahalakshmi </font>General Stores</h4>
