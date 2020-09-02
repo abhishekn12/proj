@@ -26,28 +26,53 @@ def getLoginDetails():
 
 @app.route("/")
 def root():
-    # loggedIn, firstName, noOfItems = getLoginDetails()
-    # with sqlite3.connect('database.db') as conn:
-    #     cur = conn.cursor()
-    #     cur.execute('SELECT productId, name, price, description, image, stock FROM products')
-    #     itemData = cur.fetchall()
-    #     cur.execute('SELECT categoryId, name FROM categories')
-    #     categoryData = cur.fetchall()
-    # itemData = parse(itemData)   
-    return render_template('index.html')
-    #, itemData=itemData, loggedIn=loggedIn, firstName=firstName, noOfItems=noOfItems, categoryData=categoryData)
+    loggedIn, firstName, noOfItems = getLoginDetails()
+    with sqlite3.connect('database.db') as conn:
+        cur = conn.cursor()
+        #cur.execute('SELECT productId, name, price, description, image, stock FROM products')
+        itemData = cur.fetchall()
+       # cur.execute('SELECT categoryId, name FROM categories')
+        categoryData = cur.fetchall()
+    itemData = parse(itemData)   
+    #print(noOfItems)
+    return render_template('index.html', itemData=itemData, loggedIn=loggedIn, firstName=firstName, noOfItems=noOfItems, categoryData=categoryData)
 
 @app.route("/clothing")
 def clothing():
-    return render_template('clothing.html')
+    loggedIn, firstName, noOfItems = getLoginDetails()
+    with sqlite3.connect('database.db') as conn:
+        cur = conn.cursor()
+        #cur.execute('SELECT productId, name, price, description, image, stock FROM products')
+        itemData = cur.fetchall()
+       # cur.execute('SELECT categoryId, name FROM categories')
+        categoryData = cur.fetchall()
+    itemData = parse(itemData)   
+    return render_template('clothing.html', itemData=itemData, loggedIn=loggedIn, firstName=firstName, noOfItems=noOfItems, categoryData=categoryData)
 
 @app.route("/electronics")
 def electronics():
-    return render_template('electronics.html')
+    loggedIn, firstName, noOfItems = getLoginDetails()
+    with sqlite3.connect('database.db') as conn:
+        cur = conn.cursor()
+        #cur.execute('SELECT productId, name, price, description, image, stock FROM products')
+        itemData = cur.fetchall()
+       # cur.execute('SELECT categoryId, name FROM categories')
+        categoryData = cur.fetchall()
+    itemData = parse(itemData)   
+    return render_template('electronics.html', itemData=itemData, loggedIn=loggedIn, firstName=firstName, noOfItems=noOfItems, categoryData=categoryData)
+
 
 @app.route("/books")
 def books():
-    return render_template('books.html')
+    loggedIn, firstName, noOfItems = getLoginDetails()
+    with sqlite3.connect('database.db') as conn:
+        cur = conn.cursor()
+        #cur.execute('SELECT productId, name, price, description, image, stock FROM products')
+        itemData = cur.fetchall()
+       # cur.execute('SELECT categoryId, name FROM categories')
+        categoryData = cur.fetchall()
+    itemData = parse(itemData)   
+    return render_template('books.html', itemData=itemData, loggedIn=loggedIn, firstName=firstName, noOfItems=noOfItems, categoryData=categoryData)
 
 # @app.route("/add")
 # def admin():

@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="static/css/Style.css">
+    <link rel="stylesheet" type="text/css" href="../static/css/Style.css">
     
     <link href="https://fonts.googleapis.com/css?family=Sen&display=swap" rel="stylesheet">
     
@@ -26,13 +26,18 @@
     
         <div class="icon">
         <img src="static/images/cart.jpg" height="30" width="30" class="cart">
-        <h2>3</h2>
+        <h2>{{noOfItems}}</h2>
             
             
-        <form action="/loginForm">
+        {% if not loggedIn %}
+            <form action="/loginForm">
             <input type="submit" value="login">
             </form>
-        
+        {% else %}
+            <form action="/logout">
+                <input type="submit" value="logout">
+                </form>
+        {% endif %}
         </div>
         
         <h4><font>Mahalakshmi </font>General Stores</h4>
@@ -55,10 +60,11 @@
                 <div class="column">
                     <img src="static/images/laptop-1.jpg"  style="width:75%">
                     <br/>
-                   
+                    <a href="/clothing">
                     <h3>Dell XPS i5 10th gen</h3>
                     <h3>1 TB HDD/500 GB SSD</h3>
                     <h3>₹56999.00</h3>
+                    </a>
                     <img src="static/images/starrrr1.jpg"  style="width:40%; height: 3%; ">
                     
                    
